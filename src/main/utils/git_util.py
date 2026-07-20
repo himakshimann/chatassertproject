@@ -25,16 +25,17 @@ def get_parent_commit(repo_dir, commit_sha):
     return parent_sha
 
 def clone_repo(repo_dir, git_url):
-    """Clone the repository 
+    """Clone the repository using HTTPS if an SSH GitHub URL is provided."""
 
-    Args:
-        git_url: The Git URL of the repository
-        repo_dir: The directory where you want it downloaded
+    if git_url.startswith("git@github.com:"):
+        git_url = git_url.replace("git@github.com:", "https://github.com/")
+        if git_url.endswith(".git"):
+            pass
+        else:
+            git_url += ".git"
 
-    Returns:
-        a repo object
-    """
-    repo = git.Repo.clone_from(git_url, repo_dir)
+    print(f"Cloning from: {git_url}")
+    git.Repo.clone_from(git_url, repo_dir)
 
 
 def reset_repo(repo_dir,commit_sha):

@@ -6,6 +6,7 @@ import csv
 import re
 import shutil
 import xml.etree.ElementTree as ET
+import shutil
 
 from project import Project
 from path_config import DATA_DIR, CONFIG_DIR, PRO_DIR
@@ -395,9 +396,14 @@ def main():
                     commit = project_data["commitSHA"]
                     allTests = project_data["allTests"]
                     
-                    # removing existing repo
-                    if repoName in os.listdir('../tmp/repos'):
-                        os.system('rm -rf ../tmp/repos/{}'.format(repoName))
+                    # Remove existing repo (Windows/Linux compatible)
+                    
+
+                    repo_path = os.path.join(PRO_DIR, "tmp", "repos", repoName)
+
+                    if os.path.exists(repo_path):
+                     print("Deleting potentially stale repo in working directory")
+                     shutil.rmtree(repo_path, ignore_errors=True)
                     
                     # create project object
                     project = Project(repoName, "", gitURL, commit)
@@ -533,10 +539,10 @@ def main():
 
                                         # # Check if the returned oracle compiles and runs and if yes, add it to main conversation history (the main conversation history should not contain any invalid assertion that does not compile or run)
                                         elif len(gpt_oracle) > 0 and feedback is not None and len(feedback) == 0:
-                                            # Oracle compiles and runs - add it to main conversation history
-                                            context.insert(role="user", content="GOOD. `" + gpt_oracle + "` is a plausible assertion. So, AVOID generating the assertion `" + gpt_oracle + "` again because you have already generated it.")
-                                            # SUCCESS
-                                            target_number -= 1
+                                            context.insert(role="user", content="GOOD. `" + gpt_oracle + "` is a plausible assertion.")
+
+                                            target_number = 0
+                                            break
 
                                 # Sanity checking functionality of generated oracle
                                 if is_functional(project.repo_dir, oracle_id, filePath, subRepo, className, test_name, test_code, gpt_oracle):

@@ -137,6 +137,8 @@ def summarize(file_path, class_name, src_path, dep_paths, test_name, test_code, 
             context.insert(role="assistant", content=Prompts.SUMMARIZATION_MOCK_SEED_RESPONSE)
             
             idx = 0
+            gpt_calls = 0
+
             for summarization_prompt in summarization_prompts:
                 # insert prompt into summarization context
                 context.insert(role="user", content=summarization_prompt['prompt'])
@@ -145,8 +147,12 @@ def summarize(file_path, class_name, src_path, dep_paths, test_name, test_code, 
 
                 # some of the summarization prompts will be directly added to the summary instead of asking ChatGPT to summarize (e.g. "Take note ... ")
                 if summarization_prompt['ask_gpt']:
+                    if gpt_calls >= 1:
+                        print("Skipping additional GPT summaries...")
+                        continue
                     # interact with open ai about abstraction
                     summary = interact_with_openai(context=context)
+                    gpt_calls += 1
                     print('SUMMARIZATION RESPONSE: {}\n'.format(summary))
 
                     # gather all the summaries for a specific test prefix
@@ -188,11 +194,16 @@ def retrieve_from_cache(class_name, test_name):
     else:
         return None
 
+import os
+
 def save_to_cache(summaries, class_name, test_name):
     # save generated summary to a cache for faster retrieval next time
     summaries_cache_path = "../data/summaries/{}-{}.summary".format(class_name, test_name)
 
-    with open(summaries_cache_path, 'w+') as summaries_cache:
+    # Create the directory if it doesn't already exist
+    os.makedirs(os.path.dirname(summaries_cache_path), exist_ok=True)
+
+    with open(summaries_cache_path, "w", encoding="utf-8") as summaries_cache:
         summaries_cache.write(summaries)
         summaries_cache.write("\n")
 

@@ -1,0 +1,20 @@
+SYSTEM:
+You are a programmer who is proficient in Java programming languge.
+
+USER:
+I will ask you to summarize a few Java method definitions and class definitions. Alright?
+
+ASSISTANT:
+Yes. I will explain the methods and classes that you give me. I will pay close attention to the steps you describe.
+
+USER:
+Let's summarize the focal method.
+
+USER:
+Can you explain the following focal method code?
+```  public Boolean getTokenBased() {
+    return tokenBased;
+  }
+```
+
+

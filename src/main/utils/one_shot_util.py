@@ -37,41 +37,8 @@ def get_embeddings(code):
     return embeddings.detach()
 
 def find_similar(target_class, target_name, target_code):
-    examples = []
-
-    # Extract target embeddings
-    target_embeddings = get_embeddings(target_code)
-
-    # Retrieve reference test methods from the same test file
-    ref_tests = []
-    ref_oracles = []
-    with open("../data/samples/third_sampling/sample_all.json", "r") as all:
-        all_json = json.load(all)
-        for project in all_json['projects']:
-            for _class in project['allTests']:
-                if _class['className'] == target_class:
-                    for _test in _class['classTests']:
-                        if _test['testName'] != target_name:
-                            prefix = _test['testMethod'].replace(_test['oracle'], '<AssertPlaceHolder>')
-                            ref_tests.append(prefix)
-                            ref_oracles.append(_test['oracle'])
-
-
-    # Extract reference embeddings and measure distance from target embeddings
-    for (idx, test_method) in enumerate(ref_tests):
-        ref_embeddings = get_embeddings(test_method)
-        cos_sim = dot(target_embeddings, ref_embeddings.T)/(norm(target_embeddings)*norm(ref_embeddings.T))
-
-        if cos_sim > 0.6:
-            examples.append(idx)
-
-    if len(examples) > 1:
-        example_string = ''
-        for idx in examples:
-            example_string += '\nExample {}:\n<TEST>:\n```{}```\n<AssertPlaceHolder>:\n```{}```'.format(str(idx), ref_tests[idx], ref_oracles[idx])
-        return example_string
-    else:
-        return None
+    print("sample_all.json not found. Skipping one-shot example retrieval.")
+    return None
 
 def test():
     file_path = "/Users/adminuser/Documents/Work/Experiment/ChatGPT/oragen-main/astvisitors/src/test/java/ncsusoftware/AnotherTest.java"
