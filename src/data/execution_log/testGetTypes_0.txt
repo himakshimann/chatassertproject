@@ -1,0 +1,113 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< com.orientechnologies:orientdb-core >-----------------
+[INFO] Building OrientDB Core 3.0.42
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ orientdb-core ---
+[INFO] Executing: cmd.exe /X /C "git rev-parse --verify HEAD"
+[INFO] Working directory: C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\orientdb\core
+[INFO] Storing buildNumber: f86b102816210df8fa7421aa293544f0e2f0f6a8 at timestamp: 1791042872238
+[INFO] Storing buildScmBranch: research-modern-llms
+[INFO] 
+[INFO] --- jacoco:0.8.5:prepare-agent (default) @ orientdb-core ---
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[INFO] 
+[INFO] --- javacc:2.6:jjtree-javacc (jjtree-javacc) @ orientdb-core ---
+[INFO] Skipping - all parsers are up to date
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ orientdb-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 11 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ orientdb-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ orientdb-core ---
+[WARNING] Manifest com.orientechnologies:orientdb-core:jar:3.0.42 : Unused Export-Package instructions: [com.orientechnologies.nio.*] 
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ orientdb-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 5 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ orientdb-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 429 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\orientdb\core\target\test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[167,9] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[167,10] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[167,11] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[167,12] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[168,5] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[168,6] : expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[170,10] : expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[171,5] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[171,11] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[171,44] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[185,44] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[199,43] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[205,45] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[211,50] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[216,38] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[221,35] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[227,37] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[233,45] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[246,59] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[259,47] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[272,61] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[285,48] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[298,62] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[311,50] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[324,64] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[337,48] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[347,50] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[361,64] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[373,2] reached end of file while parsing
+[INFO] 29 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.934 s
+[INFO] Finished at: 2026-10-03T21:24:52+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project orientdb-core: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[167,9] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[167,10] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[167,11] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[167,12] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[168,5] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[168,6] : expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[170,10] : expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[171,5] illegal start of expression
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[171,11] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[171,44] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[185,44] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[199,43] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[205,45] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[211,50] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[216,38] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[221,35] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[227,37] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[233,45] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[246,59] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[259,47] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[272,61] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[285,48] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[298,62] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[311,50] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[324,64] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[337,48] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[347,50] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[361,64] ';' expected
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/orientdb/core/src/test/java/com/orientechnologies/orient/core/index/OPropertyMapIndexDefinitionTest.java:[373,2] reached end of file while parsing
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

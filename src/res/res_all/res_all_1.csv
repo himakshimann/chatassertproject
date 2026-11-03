@@ -1,1 +1,12 @@
 TestID	VariantID	Project	TestClass	TestName	TrueOracle	GenOracle	Time	Corr	BuildErr
+2	0	orientechnologies/orientdb	OPropertyMapIndexDefinitionTest	testGetTypes	assertEquals(result.length,1);	???;	56.584803104400635	0	0
+4	0	orientechnologies/orientdb	OUTFSerializerTest	testSerializeWALChanges	assertEquals(stringSerializer.getObjectSizeInByteBuffer(buffer,walChanges,serializationOffset),stringSerializer.getObjectSize(OBJECT));	assertEquals(11,stringSerializer.getObjectSize(OBJECT));	109.11951351165771	0	0
+5	0	orientechnologies/orientdb	CollectionOfLinkInNestedDocumentTest	nestedLinkSet	assertNotNull(nest1);	"assertEquals(2,((Set<?>)nest1.field(""STR"")).size());"	103.36808204650879	0	0
+7	0	trautonen/coveralls-maven-plugin	JenkinsTest	testGetBuildUrl	"assertEquals(""STR"",newJenkins(env()).getBuildUrl());"	assertNull(getBuildUrl());	58.26284074783325	0	0
+8	0	trautonen/coveralls-maven-plugin	EnvironmentTest	testSetupWithIncompleteJob	"assertEquals(""STR"",mojo.serviceName);"	assertFalse(mojo.isServiceConfigured());	56.41442060470581	0	0
+9	0	rockagen/commons-lib	CommUtilTest	testHex	"assertEquals(""STR"",CommUtil.hexdump(""STR"".getBytes()));"	???;	49.99345588684082	0	0
+13	0	TooTallNate/Java-WebSocket	CharsetfunctionsTest	testIsValidUTF8off	assertFalse(Charsetfunctions.isValidUTF8(ByteBuffer.wrap(newbyte[]{100}),2));	assertFalse(isValidUTF8(ByteBuffer.allocate(0),1));	40.302412271499634	0	0
+14	0	hazelcast/hazelcast-simulator	SimulatorPropertiesTest	testLoad_justKey	"assertTrue(simulatorProperties.get(""STR"").isEmpty());"	"assertEquals(""STR"",simulatorProperties.get(""STR""));"	51.13803219795227	0	0
+17	0	OpenLiberty/ci.common	DevUtilTest	testGeneratedConfigFiles	assertTrue(util.isGeneratedConfigFile(sourceFile,configDirectory,targetDir));	assertTrue(util.isGeneratedConfigFile(sourceFile,srcDir,targetDir));	32.3642156124115	0	0
+18	0	fluenda/ParCEFone	MacAddressTest	testAddressUnderscoreSeparator	assertEquals(NORMALIZED_ADDRESS,macAddress.toString());	"assertEquals(""STR"",macAddress.toString());"	32.19490671157837	0	0
+24	0	nidi3/graphviz-java	RecordsTest	tagRec	"assertEquals(""STR"",Records.rec(""STR"",""STR""));"	"assertTrue(rec(""STR"",""STR"").startsWith(""STR""));"	54.76694059371948	0	0

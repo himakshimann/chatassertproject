@@ -1,0 +1,48 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ---------------< org.mdkt.compiler:InMemoryJavaCompiler >---------------
+[INFO] Building InMemoryJavaCompiler 1.4.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ InMemoryJavaCompiler ---
+[INFO] skip non existing resourceDirectory C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\InMemoryJavaCompiler\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.2:compile (default-compile) @ InMemoryJavaCompiler ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\InMemoryJavaCompiler\target\classes
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ InMemoryJavaCompiler ---
+[INFO] skip non existing resourceDirectory C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\InMemoryJavaCompiler\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.2:testCompile (default-testCompile) @ InMemoryJavaCompiler ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\InMemoryJavaCompiler\target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.4:test (default-test) @ InMemoryJavaCompiler ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.mdkt.compiler.InMemoryJavaCompilerTest
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/C:/Users/himak/.m2/repository/org/slf4j/slf4j-jdk14/1.7.5/slf4j-jdk14-1.7.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/C:/Users/himak/.m2/repository/org/apache/logging/log4j/log4j-slf4j-impl/2.21.0/log4j-slf4j-impl-2.21.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.JDK14LoggerFactory]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.837 s -- in org.mdkt.compiler.InMemoryJavaCompilerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.094 s
+[INFO] Finished at: 2026-10-03T21:46:00+05:30
+[INFO] ------------------------------------------------------------------------

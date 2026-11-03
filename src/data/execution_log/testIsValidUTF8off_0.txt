@@ -1,0 +1,48 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< org.java-websocket:Java-WebSocket >------------------
+[INFO] Building Java-WebSocket 1.5.2-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ Java-WebSocket ---
+[INFO] skip non existing resourceDirectory C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\Java-WebSocket\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ Java-WebSocket ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 78 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\Java-WebSocket\target\classes
+[INFO] 
+[INFO] --- bnd:4.3.1:bnd-process (default) @ Java-WebSocket ---
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ Java-WebSocket ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ Java-WebSocket ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 75 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\Java-WebSocket\target\test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/Java-WebSocket/src/test/java/org/java_websocket/util/CharsetfunctionsTest.java:[46,38] cannot find symbol
+  symbol:   method isValidUTF8(java.nio.ByteBuffer,int)
+  location: class org.java_websocket.util.CharsetfunctionsTest
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.266 s
+[INFO] Finished at: 2026-10-03T21:40:34+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project Java-WebSocket: Compilation failure
+[ERROR] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/Java-WebSocket/src/test/java/org/java_websocket/util/CharsetfunctionsTest.java:[46,38] cannot find symbol
+[ERROR]   symbol:   method isValidUTF8(java.nio.ByteBuffer,int)
+[ERROR]   location: class org.java_websocket.util.CharsetfunctionsTest
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

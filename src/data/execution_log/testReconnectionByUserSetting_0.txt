@@ -1,0 +1,133 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.alipay.sofa:bolt >------------------------
+[INFO] Building com.alipay.sofa:bolt 1.6.4
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- java-formatter:0.4:format (default) @ bolt ---
+[INFO] Using 'UTF-8' encoding to format source files.
+[INFO] Number of files to be formatted: 274
+[INFO] Successfully formatted: 1 file(s)
+[INFO] Fail to format        : 0 file(s)
+[INFO] Skipped               : 273 file(s)
+[INFO] Approximate time taken: 3s
+[INFO] 
+[INFO] --- license:3.0:format (default) @ bolt ---
+[INFO] Updating license headers...
+[WARNING] Unknown file extension: C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/LICENSE
+[WARNING] Unknown file extension: C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/HEADER
+[INFO] Updating license header in: C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/pom.xml
+[INFO] Updating license header in: C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/src/test/java/com/alipay/remoting/rpc/connectionmanage/ReconnectManagerTest_backup.txt
+[WARNING] Unable to find a comment style definition for some files. You may want to add a custom mapping for the relevant file extensions.
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ bolt ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 1 resource from . to target\classes
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.5.1:compile (default-compile) @ bolt ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 168 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\sofa-bolt\target\classes
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/src/main/java/com/alipay/remoting/AbstractRemotingServer.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/src/main/java/com/alipay/remoting/AbstractRemotingServer.java: Recompile with -Xlint:deprecation for details.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/src/main/java/com/alipay/remoting/rpc/RpcCommandFactory.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/src/main/java/com/alipay/remoting/rpc/RpcCommandFactory.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ bolt ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 6 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.5.1:testCompile (default-testCompile) @ bolt ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 106 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\sofa-bolt\target\test-classes
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/src/test/java/com/alipay/remoting/rpc/addressargs/AddressArgs_CONNECTIONNUM_Test.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/sofa-bolt/src/test/java/com/alipay/remoting/rpc/addressargs/AddressArgs_CONNECTIONNUM_Test.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:2.18.1:test (default-test) @ bolt ---
+[INFO] Surefire report directory: C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\sofa-bolt\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.alipay.remoting.rpc.connectionmanage.ReconnectManagerTest
+ERROR StatusLogger Log4j2 could not find a logging implementation. Please add log4j-core to the classpath. Using SimpleLogger to log to the console...
+Sofa-Middleware-Log SLF4J : Actual binding is of type [ com.alipay.remoting Log4j2 ]
+Sofa-Middleware-Log SLF4J Error : Build ILoggerFactory error! Default app logger will be used., java.lang.IllegalStateException: Log4j2 loggerSpaceFactory build error!
+java.lang.IllegalStateException: Log4j2 loggerSpaceFactory build error!
+	at com.alipay.sofa.common.log.factory.LoggerSpaceFactory4Log4j2Builder.doBuild(LoggerSpaceFactory4Log4j2Builder.java:151)
+	at com.alipay.sofa.common.log.factory.AbstractLoggerSpaceFactoryBuilder.build(AbstractLoggerSpaceFactoryBuilder.java:58)
+	at com.alipay.sofa.common.log.MultiAppLoggerSpaceManager.createILoggerFactory(MultiAppLoggerSpaceManager.java:312)
+	at com.alipay.sofa.common.log.MultiAppLoggerSpaceManager.getILoggerFactoryBySpaceName(MultiAppLoggerSpaceManager.java:219)
+	at com.alipay.sofa.common.log.MultiAppLoggerSpaceManager.getLoggerBySpace(MultiAppLoggerSpaceManager.java:170)
+	at com.alipay.sofa.common.log.MultiAppLoggerSpaceManager.getLoggerBySpace(MultiAppLoggerSpaceManager.java:114)
+	at com.alipay.sofa.common.log.LoggerSpaceManager.getLoggerBySpace(LoggerSpaceManager.java:57)
+	at com.alipay.sofa.common.log.LoggerSpaceManager.getLoggerBySpace(LoggerSpaceManager.java:42)
+	at com.alipay.remoting.log.BoltLoggerFactory.getLogger(BoltLoggerFactory.java:86)
+	at com.alipay.remoting.AbstractRemotingServer.<clinit>(AbstractRemotingServer.java:42)
+	at com.alipay.remoting.rpc.common.BoltServer.<init>(BoltServer.java:40)
+	at com.alipay.remoting.rpc.connectionmanage.ReconnectManagerTest.doInit(ReconnectManagerTest.java:131)
+	at com.alipay.remoting.rpc.connectionmanage.ReconnectManagerTest.testReconnectionByUserSetting(ReconnectManagerTest.java:102)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:275)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:149)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: java.lang.NoClassDefFoundError: org/apache/logging/log4j/spi/Terminable
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:756)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:473)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:74)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:369)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:363)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:362)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:352)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at com.alipay.sofa.common.log.factory.LoggerSpaceFactory4Log4j2Builder.doBuild(LoggerSpaceFactory4Log4j2Builder.java:56)
+	... 41 more
+Caused by: java.lang.ClassNotFoundException: org.apache.logging.log4j.spi.Terminable
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:352)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	... 54 more
+ERROR log Sofa-Middleware-Log SLF4J Error: Build ILoggerFactory error! Default app logger will be used.
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.974 sec - in com.alipay.remoting.rpc.connectionmanage.ReconnectManagerTest
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  30.609 s
+[INFO] Finished at: 2026-10-03T21:42:30+05:30
+[INFO] ------------------------------------------------------------------------

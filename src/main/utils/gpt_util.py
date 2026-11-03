@@ -1,34 +1,37 @@
 import sys
 sys.path.append("../")
-import os
+import truststore
 
-# from openai import OpenAI
-from google import genai
+truststore.inject_into_ssl()
+
+from openai import OpenAI
 import tiktoken
-from path_config import API_KEY_FILEPATH, PRO_DIR
+from path_config import API_KEY_FILEPATH
 from utils.context_util import Prompts
 from utils.file_util import read_file
 
 from traceback import print_exc
 
 import time
-GEMINI_KEY_FILEPATH = os.path.join(PRO_DIR, "gemini_api.key")
-
-client = genai.Client(
-    api_key=read_file(GEMINI_KEY_FILEPATH).strip()
-)
-# client = OpenAI(api_key=read_file(API_KEY_FILEPATH).strip())
-# Organization IDs
-# orgs = ["org-0wLi1kKIt9USgXMYklRCeTFQ", "org-9WS8eYC3IjH69yYgQNrk0X4w", "org-yclg2hcASx6eAd3nEyoFKrlf"]
-
 
 # Setup                                                                                                                                                                                                    
- # OpenAPI key
+OPENAI_KEY_FILEPATH = API_KEY_FILEPATH
 
-MODEL_NAME = "gemini-flash-latest"
+def get_openai_client():
+    key = read_file(OPENAI_KEY_FILEPATH).strip()
 
+    if not key:
+        raise RuntimeError(
+            "OpenAI API key is missing. Put the paid key in: "
+            + OPENAI_KEY_FILEPATH
+        )
+
+    return OpenAI(api_key=key)
+
+
+MODEL_NAME = "gpt-5.6-luna"
 MODEL_MAX_TOKEN = {
-    "gemini-flash-latest": 1048576
+    "gpt-5.6-luna": 128000
 }
 
 def oracle_prompt_generator(interact_index=None, context=None, summaries=None, example_method=None, setup=None, test=None, focal=None):
@@ -59,120 +62,52 @@ def oracle_prompt_generator(interact_index=None, context=None, summaries=None, e
     else:
         context.insert(role="user", content=Prompts.GENERATION_NEXT)
 
+def interact_with_openai(temperature=1, context=None):
+    if context is None:
+        raise Exception("In interact with openai, context cannot be None")
 
-
-def interact_with_openai_manual(temperature=1, context=None):
     import os
-    import time
+    if os.environ.get('CHATASSERT_ALLOW_API', '0') != '1':
+        raise RuntimeError('API CALL BLOCKED: Set CHATASSERT_ALLOW_API=1 to enable paid API calls.')
 
-    if context is None:
-        raise Exception("Context cannot be None")
+    client = get_openai_client()
 
-    manual_dir = os.path.join(PRO_DIR, "manual_llm")
-    os.makedirs(manual_dir, exist_ok=True)
-
-    prompt_file = os.path.join(manual_dir, "prompt.txt")
-    response_file = os.path.join(manual_dir, "response.txt")
-
-    # Save the prompt
-    with open(prompt_file, "w", encoding="utf-8") as f:
-        for msg in context.history:
-            f.write(f"{msg['role'].upper()}:\n")
-            f.write(msg["content"])
-            f.write("\n\n")
-
-    print("\n====================================")
-    print("Prompt written to:")
-    print(prompt_file)
-    print("Paste it into your chosen LLM.")
-    print("Save the model response into:")
-    print(response_file)
-    print("Waiting for response...")
-    print("====================================\n")
-
-    # Remove old response if it exists
-    if os.path.exists(response_file):
-        os.remove(response_file)
-
-    while not os.path.exists(response_file):
-        time.sleep(2)
-
-    while os.path.getsize(response_file) == 0:
-        time.sleep(1)
-
-    with open(response_file, "r", encoding="utf-8") as f:
-        result = f.read().strip()
-
-    os.remove(response_file)
-
-    return result
-
-def interact_with_gemini(temperature=1, context=None):
-
-    if context is None:
-        raise Exception("Context cannot be None")
-
-    prompt = ""
-
-    for msg in context.history:
-        prompt += f"{msg['role'].upper()}:\n{msg['content']}\n\n"
-
-    retries = 8
-
-    for attempt in range(retries):
+    while True:
         try:
-            print(f"Prompt length: {len(prompt)} characters")
-
-            response = client.models.generate_content(
+            response = client.chat.completions.create(
                 model=MODEL_NAME,
-                contents=prompt,
+                messages=context.history,
+                temperature=temperature
             )
 
-            return response.text
+            result = ""
+
+            for choice in response.choices:
+                if choice.message and choice.message.content:
+                    result += choice.message.content
+
+            return result
 
         except Exception as e:
+            message = str(e)
 
-            print(f"\n===== GEMINI ERROR ({attempt + 1}/{retries}) =====")
-            print(e)
+            if "maximum context length" in message.lower():
+                print("\n!! Token Limit Exceeded !!\n")
+                context.reset()
+                continue
 
-            if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
-                raise Exception(
-                    "Gemini free-tier quota exhausted. "
-                    "Switch USE_PROVIDER='manual' or wait for quota reset."
-                )
-
-            if "503" in str(e) or "UNAVAILABLE" in str(e):
-                print("Retrying in 20 seconds...\n")
-                time.sleep(20)
+            if "rate limit" in message.lower() or "429" in message:
+                print("\n!! Rate Limit Exceeded. Retrying in 60 seconds !!\n")
+                time.sleep(60)
                 continue
 
             raise
 
-    raise Exception("Gemini failed after all retries.")
-
-USE_PROVIDER = "gemini"    # "manual" or "gemini"
-
-def interact_with_openai(temperature=1, context=None):
-    if USE_PROVIDER == "manual":
-        return interact_with_openai_manual(
-            temperature=temperature,
-            context=context
-        )
-
-    elif USE_PROVIDER == "gemini":
-        return interact_with_gemini(
-            temperature=temperature,
-            context=context
-        )
-
-    raise ValueError(f"Unknown provider: {USE_PROVIDER}")
-
 def num_tokens_from_string(query, model_name=MODEL_NAME):
-    if USE_PROVIDER == "gemini":
-        return len(query) // 4   # rough approximation
-
+    """Returns the number of tokens in a text string."""
     encoding = tiktoken.encoding_for_model(model_name)
-    return len(encoding.encode(query))
+    num_tokens = len(encoding.encode(query))
+    return num_tokens
 
 def if_exceed_token_limit(query, model_name=MODEL_NAME):
     """Returns True if the number of tokens in a text string exceeds the maximum allowed."""

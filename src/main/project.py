@@ -464,7 +464,7 @@ class Project():
         print("Running maven tests...")
         
         print(className, testName)
-        output = execute_cmd_with_output("mvn clean test -Dgpg.skip -Dtest={}#{}".format(className, testName), os.path.join(repo_dir, subRepo))
+        output = execute_cmd_with_output("mvn test -Dgpg.skip -Djacoco.skip=true -Dtest={}#{}".format(className, testName),os.path.join(repo_dir, subRepo))
         
         # print('\n\nOUTPUT:\n\n{}\n'.format(output))
         # print('=================================================\n')

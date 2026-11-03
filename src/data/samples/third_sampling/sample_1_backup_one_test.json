@@ -1,0 +1,56 @@
+{
+    "projects": [
+        {
+            "userName": "orientechnologies",
+            "repoName": "orientdb",
+            "subRepos": [
+                "test-commons",
+                "core",
+                "client",
+                "object",
+                "tools",
+                "server",
+                "security",
+                "graphdb",
+                "tests",
+                "distributed",
+                "lucene",
+                "jdbc",
+                "etl",
+                "distribution",
+                "distribution-tp2",
+                "crashtests"
+            ],
+            "commitSHA": "2cabb46c9581572b7f46724864f02d9c688070c5",
+            "buildSystem": "mvn",
+            "allTests": [
+                {
+                    "className": "OClientConnectionTest",
+                    "classPath": "server/src/test/java/com/orientechnologies/orient/server/OClientConnectionTest.java",
+                    "subRepo": "server",
+                    "before": {
+                        "setupName": "before",
+                        "startLn": 41,
+                        "endLn": 49,
+                        "setupMethod": "@Before\n public void before ( ) { \n MockitoAnnotations . initMocks ( this ) ; \n Mockito . when ( protocol . getServer ( ) ) . thenReturn ( server ) ; \n Mockito . when ( server . getClientConnectionManager ( ) ) . thenReturn ( manager ) ; \n Mockito . when ( server . getContextConfiguration ( ) ) . thenReturn ( new OContextConfiguration ( ) ) ; \n db = new ODatabaseDocumentTx ( \"STR\" + OClientConnectionTest . class . getSimpleName ( ) ) ; \n db . create ( ) ; \n } "
+                    },
+                    "classTests": [
+                        {
+                            "testName": "testValidToken",
+                            "startLn": 56,
+                            "endLn": 66,
+                            "testMethod": "@Test\n public void testValidToken ( ) throws IOException {\n     OClientConnection conn = new OClientConnection ( 1 , protocol ) ; \n     OTokenHandler handler = new OTokenHandlerImpl ( server ) ; \n     byte [ ] tokenBytes = handler . getSignedBinaryToken ( db , db . getUser ( ) , conn . getData ( ) ) ; \n     conn . validateSession ( tokenBytes , handler , null ) ; \n     assertTrue(conn.getTokenBased());\n}",
+                            "oracle": "assertTrue(conn.getTokenBased());",
+                            "oracleLn": 4,
+                            "focalFile": "server/src/main/java/com/orientechnologies/orient/server/OClientConnection.java",
+                            "focalName": "getTokenBased",
+                            "focalStartLn": 242,
+                            "focalEndLn": 244,
+                            "focalMethod": " public Boolean getTokenBased ( ) { \n return tokenBased ; \n } "
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

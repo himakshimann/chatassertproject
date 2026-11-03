@@ -1,4 +1,4 @@
-import os
+﻿import os
 import sys
 import json
 import time
@@ -20,23 +20,25 @@ from utils.markdown_util import extract_assertion, clean_args, check_commutative
 from utils.repair_util import adhoc_repair, check_and_fix_lhs2rhs
 from utils.summarization_util import summarize
 from utils.one_shot_util import find_similar
+from experiment_logger import log_event
 
 from py4j.java_gateway import JavaGateway
+from py4j.protocol import Py4JNetworkError
 
 from multiprocessing import Process, Queue
 
 import traceback
 
 # Constants to determine various generation/repair loop termination
-TARGET_NUMBER = 10  # Number of oracles to be generated (NO in the paper)
-GLOBAL_TRIALS = 30  # Maximum number of interactions (GT in the paper)
-LOCAL_TRIALS = 3    # Maximum number of retries based on compilation and execution feedback (LT in the paper)
+TARGET_NUMBER = 1  # Number of oracles to be generated (NO in the paper)
+GLOBAL_TRIALS = 1  # Maximum number of interactions (GT in the paper)
+LOCAL_TRIALS = 0    # Maximum number of retries based on compilation and execution feedback (LT in the paper)
 
 # Switches for ablation study
-FUZZ_REPAIR = True      # Ablation Study No. 4
-FEEDBACK_REPAIR = True   # Ablation Study No. 3
-SUMMARIZATION = True    # Ablation Study No. 2
-ONE_SHOT = True         # Ablation Study No. 1
+FUZZ_REPAIR = False      # Ablation Study No. 4
+FEEDBACK_REPAIR = False   # Ablation Study No. 3
+SUMMARIZATION = False    # Ablation Study No. 2
+ONE_SHOT = False         # Ablation Study No. 1
 
 # Switches
 EXECUTE_GENERATION = True # Only cache summaries or execute oracle generation conversation too?
@@ -71,6 +73,15 @@ def get_gpt_oracle(test_name="", temperature=1, context=None):
 
 def ask(oracle_id, context, summaries, example_method, test_name, before_code, test_code, focal_code):
     global conversation_history
+
+    log_event(
+        "oracle_generation_start",
+        oracle_id=oracle_id,
+        test_name=test_name,
+        test_code=test_code,
+        focal_code=focal_code,
+        context_history=context.history
+    )
     
     # Add user input to the conversation history                                                                                                                                                          
     oracle_prompt_generator(oracle_id, context, summaries, example_method, before_code, test_code, focal_code)
@@ -83,6 +94,14 @@ def ask(oracle_id, context, summaries, example_method, test_name, before_code, t
 
     gpt_oracle = get_gpt_oracle(test_name=test_name, context=context)
     status_count['total'] += 1
+
+    log_event(
+        "oracle_generation_complete",
+        oracle_id=oracle_id,
+        test_name=test_name,
+        generated_oracle=gpt_oracle,
+        context_history=context.history
+    )
 
     return gpt_oracle
 
@@ -99,8 +118,26 @@ def follow_up(proc_q, repo_dir, oracle_id, file_path, subRepo, className, test_n
     feedback_context.insert(role="user", content=(Prompts.FEEDBACK_SEED_EXT).format(gpt_oracle))
 
     res, feedback = collect_feedback(repo_dir, oracle_id, file_path, subRepo, className, test_name, test_code, gpt_oracle)
+
+    log_event(
+        "feedback_initial",
+        oracle_id=oracle_id,
+        test_name=test_name,
+        oracle=gpt_oracle,
+        result=res,
+        feedback=feedback
+    )
     if feedback is not None and len(feedback) > 0:
         for feedback_id in range(LOCAL_TRIALS):
+            log_event(
+                "feedback_iteration",
+                oracle_id=oracle_id,
+                test_name=test_name,
+                feedback_id=feedback_id,
+                oracle_before_repair=gpt_oracle,
+                feedback=feedback
+            )
+
             # print('\nFEEDBACK ID: {}\n'.format(str(feedback_id)))
             print('FOLLOW-UP ORACLE: {}'.format(gpt_oracle))
             if feedback is not None:
@@ -125,12 +162,30 @@ def follow_up(proc_q, repo_dir, oracle_id, file_path, subRepo, className, test_n
                             if fixed_gpt_oracle is None: continue
                             else:
                                 gpt_oracle = fixed_gpt_oracle
+
+                                log_event(
+                                    "feedback_oracle_generated",
+                                    oracle_id=oracle_id,
+                                    test_name=test_name,
+                                    feedback_id=feedback_id,
+                                    generated_oracle=gpt_oracle
+                                )
                                 # Insert the fixed oracle inside the feedback-driven repair context
                                 feedback_context.insert(role="assistant", content=(Prompts.FEEDBACK_FIXED).format(gpt_oracle))
                 elif len(feedback) == 0:
                     break
 
-            res, feedback = collect_feedback(repo_dir, oracle_id, file_path, subRepo, className, test_name, test_code, gpt_oracle)                       
+            res, feedback = collect_feedback(repo_dir, oracle_id, file_path, subRepo, className, test_name, test_code, gpt_oracle)
+
+
+    log_event(
+        "feedback_final",
+        oracle_id=oracle_id,
+        test_name=test_name,
+        final_oracle=gpt_oracle,
+        final_result=res,
+        final_feedback=feedback
+    )
 
     proc_q.put(res)
     proc_q.put(feedback)
@@ -184,7 +239,7 @@ def collect_feedback(repo_dir, oracle_id, file_path, subRepo, class_name, test_n
             if os.path.exists(report_dir):
                 report_path = None
                 for r_path in os.listdir(report_dir):
-                    if (class_name + '.xml') in r_path:
+                    if r_path.endswith(class_name + '.xml') or r_path.endswith('TEST-' + class_name + '.xml') or (class_name + '.xml') in r_path:
                         report_path = os.path.join(report_dir, r_path)
                         break
                 
@@ -208,7 +263,24 @@ def collect_feedback(repo_dir, oracle_id, file_path, subRepo, class_name, test_n
                         if message_found:
                             break
                     if not message_found:
-                        print('\n\n!!! Could not retrieve test error message (report not found in xml) !!!\n\n')
+                        print('\n\nTest passed: no failure or error found in XML report.\n\n')
+
+    except (
+        Py4JNetworkError,
+        ConnectionRefusedError,
+        ConnectionResetError,
+        BrokenPipeError
+    ) as e:
+        print("\n" + "=" * 60)
+        print("GATEWAY CRASH DETECTED")
+        print("=" * 60)
+        print(f"Error: {e}")
+        traceback.print_exc()
+        print("Stopping this ChatAssert process safely.")
+        print("=" * 60)
+
+        # Stop immediately. Do not continue making API calls.
+        raise SystemExit(2)
 
     except Exception as e:
         traceback.print_exc()
@@ -363,7 +435,7 @@ def main():
             GLOBAL_TRIALS = 1 # L-One (Zero)
             v1_flag = True
         if 'v2' in arg: 
-            # Default GLOBAL_TRIALS = 30
+            # Default GLOBAL_TRIALS = 1
             v2_flag = True
 
         # Input data sample id (e.g. sample_1.json)
@@ -439,6 +511,8 @@ def main():
 
                         print("\n-----------------------------------------\nAnalyzing Oracles for Test Class: {}\n-----------------------------------------\n".format(className))
                         for test in classTests:
+                            if testId >= 25:
+                                break
                             # Instantiate oracle generation conversation context
                             context = Context(_name=Context.GENERATION_CONTEXT_NAME)
 
@@ -517,7 +591,7 @@ def main():
                                         proc_q = Queue()
                                         p = Process(target=follow_up, args=(proc_q, project.repo_dir, oracle_id, filePath, subRepo, className, test_name, test_code, gpt_oracle, focal_code))
                                         p.start()
-                                        p.join(timeout=100)
+                                        p.join(timeout=300)
                                         if p.is_alive():
                                             print('\nEXECUTION TIMEOUT\n')
                                             p.terminate()
@@ -541,7 +615,7 @@ def main():
                                         elif len(gpt_oracle) > 0 and feedback is not None and len(feedback) == 0:
                                             context.insert(role="user", content="GOOD. `" + gpt_oracle + "` is a plausible assertion.")
 
-                                            target_number = 0
+                                            TARGET_NUMBER = 1
                                             break
 
                                 # Sanity checking functionality of generated oracle
@@ -567,3 +641,11 @@ if __name__ == "__main__":
         main()
     except:
         pass
+
+
+
+
+
+
+
+

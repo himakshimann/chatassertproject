@@ -25,13 +25,24 @@ def delete_file(file):
     except FileNotFoundError as e:
         print('Delete file: {} - does not exist'.format(str(file)))
 
+def _ignore_git(directory, names):
+    return {name for name in names if name == '.git'}
+
+
 def copy_folder(src, dst):
     try:
-        copytree(src, dst, symlinks=False, ignore_dangling_symlinks=True, dirs_exist_ok=True)
-        time.sleep(1)
-    except:
-        print_exc()
-        print("Copy error in file_util")
+        print('Copying repo from cache dir to working dir')
+        copytree(
+            src,
+            dst,
+            symlinks=False,
+            ignore=_ignore_git,
+            ignore_dangling_symlinks=True,
+            dirs_exist_ok=True
+        )
+    except Exception:
+        print('Copy error in file_util')
+        traceback.print_exc()
 
 def delete_folder(folder):
     # print(folder)

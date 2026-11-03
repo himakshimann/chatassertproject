@@ -1,0 +1,45 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] -------------------< lv.ailab.morphology:morphology >-------------------
+[INFO] Building Latvian morphological analysis library 2.2.4-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ morphology ---
+[INFO] Copying 16 resources from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.3:compile (default-compile) @ morphology ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 31 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\morphology\target\classes
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/morphology/src/main/java/lv/semti/morphology/analyzer/Analyzer.java: C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\morphology\src\main\java\lv\semti\morphology\analyzer\Analyzer.java uses unchecked or unsafe operations.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/morphology/src/main/java/lv/semti/morphology/analyzer/Analyzer.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ morphology ---
+[INFO] Copying 6 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.3:testCompile (default-testCompile) @ morphology ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\morphology\target\test-classes
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/morphology/src/test/java/lv/semti/morphology/Testi/TagSetTest.java: C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\morphology\src\test\java\lv\semti\morphology\Testi\TagSetTest.java uses or overrides a deprecated API.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/morphology/src/test/java/lv/semti/morphology/Testi/TagSetTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/morphology/src/test/java/lv/semti/morphology/Testi/MorphoEvaluate.java: C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\morphology\src\test\java\lv\semti\morphology\Testi\MorphoEvaluate.java uses unchecked or unsafe operations.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/morphology/src/test/java/lv/semti/morphology/Testi/MorphoEvaluate.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.12.4:test (default-test) @ morphology ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.077 s
+[INFO] Finished at: 2026-10-03T21:46:38+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project morphology: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

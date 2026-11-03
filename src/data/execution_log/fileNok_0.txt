@@ -1,0 +1,144 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ---------------------< guru.nidi.raml:raml-loader >---------------------
+[INFO] Building raml-loader 1.0.2-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- code-assert:0.0.12:prepare (default) @ raml-loader ---
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[INFO] argLine set to empty
+[INFO] Wrote argLine to target\coverageOptions.txt
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ raml-loader ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.6.1:compile (default-compile) @ raml-loader ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 31 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\raml-loader\target\classes
+[INFO] 
+[INFO] --- jdeps:3.0.0:jdkinternals (default) @ raml-loader ---
+[INFO] 
+Warning: C:\Users\himak\.m2\repository\javax\xml\bind\jaxb-api\2.3.0\jaxb-api-2.3.0.jar is a multi-release jar file.
+All versioned entries are analyzed. To analyze the entries for a specific
+version, use a newer version of jdeps (JDK 9 or later) "--multi-release" option.
+Warning: C:\Users\himak\.m2\repository\org\slf4j\slf4j-api\2.0.0\slf4j-api-2.0.0.jar is a multi-release jar file.
+All versioned entries are analyzed. To analyze the entries for a specific
+version, use a newer version of jdeps (JDK 9 or later) "--multi-release" option.
+Warning: C:\Users\himak\.m2\repository\org\slf4j\slf4j-simple\2.0.0\slf4j-simple-2.0.0.jar is a multi-release jar file.
+All versioned entries are analyzed. To analyze the entries for a specific
+version, use a newer version of jdeps (JDK 9 or later) "--multi-release" option.
+Warning: C:\Users\himak\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.0\log4j-api-2.21.0.jar is a multi-release jar file.
+All versioned entries are analyzed. To analyze the entries for a specific
+version, use a newer version of jdeps (JDK 9 or later) "--multi-release" option.
+Warning: C:\Users\himak\.m2\repository\org\apache\logging\log4j\log4j-core\2.21.0\log4j-core-2.21.0.jar is a multi-release jar file.
+All versioned entries are analyzed. To analyze the entries for a specific
+version, use a newer version of jdeps (JDK 9 or later) "--multi-release" option.
+classes -> C:\Users\himak\.m2\repository\commons-codec\commons-codec\1.9\commons-codec-1.9.jar
+classes -> C:\Users\himak\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar
+classes -> C:\Users\himak\.m2\repository\org\apache\httpcomponents\httpclient\4.4.1\httpclient-4.4.1.jar
+classes -> C:\Users\himak\.m2\repository\org\apache\httpcomponents\httpcore\4.4.1\httpcore-4.4.1.jar
+classes -> C:\Users\himak\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.4.4\jackson-databind-2.4.4.jar
+classes -> C:\Users\himak\.m2\repository\com\github\fge\json-schema-core\1.2.5\json-schema-core-1.2.5.jar
+classes -> C:\Users\himak\.m2\repository\com\github\fge\json-schema-validator\2.2.6\json-schema-validator-2.2.6.jar
+classes -> C:\Users\himak\.m2\repository\org\raml\raml-parser-2\1.0.0\raml-parser-2-1.0.0.jar
+classes -> C:\Program Files\Eclipse Adoptium\jdk-8.0.472.8-hotspot\jre\lib\rt.jar
+classes -> C:\Users\himak\.m2\repository\org\raml\yagi\1.0.0\yagi-1.0.0.jar
+   guru.nidi.loader (classes)
+      -> java.io                                            
+      -> java.lang                                          
+   guru.nidi.loader.apidesigner (classes)
+      -> guru.nidi.loader                                   classes
+      -> guru.nidi.loader.repository                        classes
+      -> guru.nidi.loader.url                               classes
+      -> java.io                                            
+      -> java.lang                                          
+      -> java.net                                           
+      -> java.util                                          
+      -> org.apache.http                                    httpcore-4.4.1.jar
+      -> org.apache.http.message                            httpcore-4.4.1.jar
+   guru.nidi.loader.basic (classes)
+      -> guru.nidi.loader                                   classes
+      -> java.io                                            
+      -> java.lang                                          
+      -> java.net                                           
+      -> java.util                                          
+      -> java.util.regex                                    
+   guru.nidi.loader.repository (classes)
+      -> com.fasterxml.jackson.databind                     jackson-databind-2.4.4.jar
+      -> guru.nidi.loader                                   classes
+      -> java.io                                            
+      -> java.lang                                          
+      -> java.nio.charset                                   
+      -> java.util                                          
+   guru.nidi.loader.url (classes)
+      -> com.fasterxml.jackson.databind                     jackson-databind-2.4.4.jar
+      -> guru.nidi.loader                                   classes
+      -> java.io                                            
+      -> java.lang                                          
+      -> java.nio.charset                                   
+      -> java.text                                          
+      -> java.util                                          
+      -> javax.net.ssl                                      
+      -> org.apache.commons.codec.binary                    commons-codec-1.9.jar
+      -> org.apache.commons.io.input                        commons-io-2.4.jar
+      -> org.apache.http                                    httpcore-4.4.1.jar
+      -> org.apache.http.client.entity                      httpclient-4.4.1.jar
+      -> org.apache.http.client.methods                     httpclient-4.4.1.jar
+      -> org.apache.http.conn.ssl                           httpclient-4.4.1.jar
+      -> org.apache.http.impl.client                        httpclient-4.4.1.jar
+      -> org.apache.http.message                            httpcore-4.4.1.jar
+      -> org.apache.http.util                               httpcore-4.4.1.jar
+   guru.nidi.loader.use.jsonschema (classes)
+      -> com.github.fge.jsonschema.cfg                      json-schema-validator-2.2.6.jar
+      -> com.github.fge.jsonschema.core.load.configuration  json-schema-core-1.2.5.jar
+      -> com.github.fge.jsonschema.core.load.download       json-schema-core-1.2.5.jar
+      -> com.github.fge.jsonschema.core.load.uri            json-schema-core-1.2.5.jar
+      -> com.github.fge.jsonschema.core.report              json-schema-core-1.2.5.jar
+      -> com.github.fge.jsonschema.main                     json-schema-validator-2.2.6.jar
+      -> guru.nidi.loader                                   classes
+      -> java.io                                            
+      -> java.lang                                          
+      -> java.net                                           
+   guru.nidi.loader.use.raml (classes)
+      -> guru.nidi.loader                                   classes
+      -> java.io                                            
+      -> java.lang                                          
+      -> org.raml.v2.api                                    raml-parser-2-1.0.0.jar
+      -> org.raml.v2.api.loader                             yagi-1.0.0.jar
+   guru.nidi.loader.use.xml (classes)
+      -> guru.nidi.loader                                   classes
+      -> java.io                                            
+      -> java.lang                                          
+      -> javax.xml                                          
+      -> javax.xml.validation                               
+      -> org.w3c.dom                                        
+      -> org.w3c.dom.bootstrap                              
+      -> org.w3c.dom.ls
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ raml-loader ---
+[INFO] Copying 8 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ raml-loader ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\raml-loader\target\test-classes
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/raml-loader/src/test/java/guru/nidi/loader/basic/GithubTest.java: Some input files use or override a deprecated API.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/raml-loader/src/test/java/guru/nidi/loader/basic/GithubTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- tools:1.0.20:backport7to6 (default) @ raml-loader ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  28.764 s
+[INFO] Finished at: 2026-10-03T21:43:26+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal guru.nidi.maven.plugins:tools-maven-plugin:1.0.20:backport7to6 (default) on project raml-loader: Could not backport: IllegalArgumentException -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

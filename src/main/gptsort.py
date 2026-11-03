@@ -35,7 +35,7 @@ openai.api_key = read_file(API_KEY_FILEPATH)  # OpenAPI key
 MAX_INTERACTION = 10  # Maximum number of interactions
 TARGET_NUMBER = 10 # Number of oracles to be generated
 FEEDBACK_BUDGET = 3 # Maximum number of retries based on compilation and execution feedback                                                                                                                                                         
-MODEL_NAME = "gpt-3.5-turbo"
+MODEL_NAME = "gpt-5.6-luna"
 SYSTEM_ROLE = "You are a programmer who is proficient in Java programming languge"
 
 WILL_SORT = 0

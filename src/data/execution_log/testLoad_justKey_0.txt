@@ -1,0 +1,67 @@
+[INFO] Scanning for projects...
+[WARNING] The project com.hazelcast.simulator:simulator:jar:0.14-SNAPSHOT uses prerequisites which is only intended for maven-plugin projects but not for non maven-plugin projects. For such purposes you should use the maven-enforcer-plugin. See https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html
+[INFO] 
+[INFO] -----------------< com.hazelcast.simulator:simulator >------------------
+[INFO] Building Simulator Tool 0.14-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- git-commit-id:2.1.10:revision (default) @ simulator ---
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ simulator ---
+[INFO] Copying 9 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ simulator ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 171 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\hazelcast-simulator\simulator\target\classes
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/hazelcast-simulator/simulator/src/main/java/com/hazelcast/simulator/worker/Worker.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/hazelcast-simulator/simulator/src/main/java/com/hazelcast/simulator/worker/Worker.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ simulator ---
+[INFO] Copying 9 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ simulator ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 135 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\hazelcast-simulator\simulator\target\test-classes
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/hazelcast-simulator/simulator/src/test/java/com/hazelcast/simulator/common/FailureTypeTest.java: C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\hazelcast-simulator\simulator\src\test\java\com\hazelcast\simulator\common\FailureTypeTest.java uses or overrides a deprecated API.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/hazelcast-simulator/simulator/src/test/java/com/hazelcast/simulator/common/FailureTypeTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/hazelcast-simulator/simulator/src/test/java/com/hazelcast/simulator/worker/testcontainer/PrimordialRunStrategyIntegrationTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /C:/Users/himak/Desktop/Research Internship/chatassert/src/tmp/repos/hazelcast-simulator/simulator/src/test/java/com/hazelcast/simulator/worker/testcontainer/PrimordialRunStrategyIntegrationTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.19.1:test (default-test) @ simulator ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.hazelcast.simulator.common.SimulatorPropertiesTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.15 sec <<< FAILURE! - in com.hazelcast.simulator.common.SimulatorPropertiesTest
+testLoad_justKey(com.hazelcast.simulator.common.SimulatorPropertiesTest)  Time elapsed: 1.006 sec  <<< ERROR!
+com.hazelcast.simulator.utils.UncheckedIOException: java.io.FileNotFoundException: C:\Users\himak\AppData\Local\Temp\temp6292442069516307038tmp-48d8488e-8b0b-4e6b-b8ee-1abd13cbee5b (Access is denied)
+	at com.hazelcast.simulator.common.SimulatorPropertiesTest.before(SimulatorPropertiesTest.java:29)
+Caused by: java.io.FileNotFoundException: C:\Users\himak\AppData\Local\Temp\temp6292442069516307038tmp-48d8488e-8b0b-4e6b-b8ee-1abd13cbee5b (Access is denied)
+	at com.hazelcast.simulator.common.SimulatorPropertiesTest.before(SimulatorPropertiesTest.java:29)
+
+
+Results :
+
+Tests in error: 
+  SimulatorPropertiesTest.before:29 » UncheckedIO java.io.FileNotFoundException:...
+
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  26.359 s
+[INFO] Finished at: 2026-10-03T21:41:34+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project simulator: There are test failures.
+[ERROR] 
+[ERROR] Please refer to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\hazelcast-simulator\simulator\target\surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

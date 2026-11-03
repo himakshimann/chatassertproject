@@ -1,0 +1,47 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.rockagen:commons-lib >----------------------
+[INFO] Building commons-lib 0.1.10-RELEASE
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ commons-lib ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.2:compile (default-compile) @ commons-lib ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 16 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\commons-lib\target\classes
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ commons-lib ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.2:testCompile (default-testCompile) @ commons-lib ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 12 source files to C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\commons-lib\target\test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] ootstrap class path not set in conjunction with -source 1.6
+C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\commons-lib\src\test\java\com\rockagen\commons\util\CommUtilTest.java:[1] error: class, interface, or enum expected
+[ERROR] C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\commons-lib\src\test\java\com\rockagen\commons\util\CommUtilTest.java:[1,1] error: class, interface, or enum expected
+[ERROR] C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\commons-lib\src\test\java\com\rockagen\commons\util\CommUtilTest.java:[1,2] error: class, interface, or enum expected
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  16.626 s
+[INFO] Finished at: 2026-10-03T21:37:08+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.2:testCompile (default-testCompile) on project commons-lib: Compilation failure: Compilation failure: 
+[ERROR] ootstrap class path not set in conjunction with -source 1.6
+[ERROR] C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\commons-lib\src\test\java\com\rockagen\commons\util\CommUtilTest.java:[1] error: class, interface, or enum expected
+[ERROR] C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\commons-lib\src\test\java\com\rockagen\commons\util\CommUtilTest.java:[1,1] error: class, interface, or enum expected
+[ERROR] C:\Users\himak\Desktop\Research Internship\chatassert\src\tmp\repos\commons-lib\src\test\java\com\rockagen\commons\util\CommUtilTest.java:[1,2] error: class, interface, or enum expected
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
